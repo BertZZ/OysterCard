@@ -30,7 +30,6 @@ end
 def touch_out(station)
   deduct(MINIMUM_BALACE)
   @exit_station = station
-#  save_journey
   @journey_history << {entry_station: @entry_station, exit_station: @exit_station}
   @entry_station = nil
 end
@@ -38,10 +37,6 @@ end
 def in_journey?
     @entry_station.nil? ? false : true
 end
-
-#def save_journey
-#  @journey << {entry_station: @entry_station, exit_station: @exit_station}
-#end
 
 private
 
