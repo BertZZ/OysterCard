@@ -1,13 +1,13 @@
 require_relative 'station'
+require_relative 'journey'
 
-class OysterCard
+class OysterCard #It understands the balance of the card
   attr_reader :balance, :entry_station, :journey_history
   BALANCE_LIMIT = 90
   MINIMUM_BALANCE = 1
 
 def initialize
   @balance = 0
-#  @entry_station = nil
   @journey_history = []
 end
 
