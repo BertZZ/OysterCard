@@ -3,7 +3,7 @@ require_relative 'station'
 class OysterCard
   attr_reader :balance, :entry_station, :journey_history
   BALANCE_LIMIT = 90
-  MINIMUM_BALACE = 1
+  MINIMUM_BALANCE = 1
 
 def initialize
   @balance = 0
@@ -20,7 +20,7 @@ def top_up(value)
 end
 
 def touch_in(station)
-  if @balance < MINIMUM_BALACE
+  if @balance < MINIMUM_BALANCE
     fail 'Not enough money on the card'
   else
     @entry_station = station
@@ -28,7 +28,7 @@ def touch_in(station)
 end
 
 def touch_out(station)
-  deduct(MINIMUM_BALACE)
+  deduct(MINIMUM_BALANCE)
   @exit_station = station
   @journey_history << {entry_station: @entry_station, exit_station: @exit_station}
   @entry_station = nil
