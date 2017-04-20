@@ -23,15 +23,13 @@ def touch_in(station)
   if @balance < MINIMUM_BALANCE
     fail 'Not enough money on the card'
   else
-    @entry_station = station
+    @new_journey = Journey.new(station)
   end
 end
 
 def touch_out(station)
   deduct(MINIMUM_BALANCE)
-  @exit_station = station
-  @journey_history << {entry_station: @entry_station, exit_station: @exit_station}
-  @entry_station = nil
+  @new_journey.end_journey(station)
 end
 
 def in_journey?
